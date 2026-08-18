@@ -21,12 +21,12 @@ public class Rectangle {
         Area(a, b);
     }
 
-
-
     static void Diagonal(double a, double b) {
         double d = Math.sqrt((a * a) + (b * b));
         System.out.printf("Diagonale: " + "%.2f", d);
     }
+
+
 
     static void Scope(double a, double b) {
         double u = 2 * (a + b);
