@@ -9,6 +9,8 @@ public class Rectangle {
         double a;
         double b;
 
+
+
         try {
             a = Double.parseDouble(args[0]);
             b = Double.parseDouble(args[1]);
