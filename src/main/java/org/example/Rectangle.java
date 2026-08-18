@@ -16,16 +16,25 @@ public class Rectangle {
             return;
         }
 
+        Diagonal(a, b);
+        Scope(a, b);
+        Area(a, b);
+    }
+
+
+
+    static void Diagonal(double a, double b) {
         double d = Math.sqrt((a * a) + (b * b));
-
-        double u = 2 * (a + b);
-
-        double aF = a * b;
-
         System.out.printf("Diagonale: " + "%.2f", d);
+    }
+
+    static void Scope(double a, double b) {
+        double u = 2 * (a + b);
         System.out.printf("\nUmfang: " + "%.2f", u);
+    }
+
+    static void Area(double a, double b) {
+        double aF = a * b;
         System.out.printf("\nFlächeninhalt: " + "%.2f", aF);
-
-
     }
 }
