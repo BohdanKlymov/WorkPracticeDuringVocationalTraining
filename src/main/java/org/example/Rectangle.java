@@ -21,20 +21,22 @@ public class Rectangle {
         Area(a, b);
     }
 
-    static void Diagonal(double a, double b) {
+//    static void Diagonal(double a, double b) {
+//        double d = Math.sqrt((a * a) + (b * b));
+//        System.out.printf("Diagonale: " + "%.2f", d);
+//    }
+    static double Diagonal(double a, double b) {
         double d = Math.sqrt((a * a) + (b * b));
-        System.out.printf("Diagonale: " + "%.2f", d);
+        return d;
     }
 
-
-
-    static void Scope(double a, double b) {
+    static double Scope(double a, double b) {
         double u = 2 * (a + b);
-        System.out.printf("\nUmfang: " + "%.2f", u);
+        return u;
     }
 
-    static void Area(double a, double b) {
+    static double Area(double a, double b) {
         double aF = a * b;
-        System.out.printf("\nFlächeninhalt: " + "%.2f", aF);
+        return aF;
     }
 }

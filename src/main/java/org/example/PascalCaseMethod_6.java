@@ -2,7 +2,6 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 
 public class PascalCaseMethod_6 {
@@ -10,11 +9,16 @@ public class PascalCaseMethod_6 {
 
         int[] numbers = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
 
+        if (numbers.length == 0) {
+            return;
+        }
 
         ArrayList sortedSums = new ArrayList<int[]>(ConvertIntoArrayList(numbers));
 
 //        The example of how ArrayList compares dates
-        System.out.println(Arrays.deepToString(sortedSums.toArray()));
+//        System.out.println(Arrays.deepToString(sortedSums.toArray()));
+
+        putSumsInArray(sortedSums, numbers);
 
     } 
 
@@ -46,16 +50,27 @@ public class PascalCaseMethod_6 {
         return resultWithIndexes;
     }
 
-    static int[] putSumsInArray(ArrayList<int[]> sortedSums) {
+    static void putSumsInArray(ArrayList<int[]> sortedSums, int[] numbers) {
 
-        int[] allSums = new int[sortedSums.size()];
-        int index = 0;
+        int[] max = new int[] {};
+        int lastSum = sortedSums.get(0)[0];
 
-        for (int[] arr : sortedSums) {
-            allSums[index] = arr[0];
-            index++;
+        for (int[] sums : sortedSums) {
+            if (sums[0] > lastSum) {
+                max = sums;
+
+                lastSum = sums[0];
+            }
         }
 
-        return allSums;
+        int[] numbersOfBiggestSum = new int[max[2] + 1];
+        int startIndexOfSum = max[1];
+
+        for (int index = 0; index < (max[2] + 1); index++) {
+            numbersOfBiggestSum[index] = numbers[startIndexOfSum];
+            startIndexOfSum++;
+        }
+
+        System.out.println(max[0] + "\nSum of: " + Arrays.toString(numbersOfBiggestSum));
     }
 }
