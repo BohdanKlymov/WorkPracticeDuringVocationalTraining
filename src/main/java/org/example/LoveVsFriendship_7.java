@@ -6,10 +6,15 @@ import java.util.Scanner;
 public class LoveVsFriendship_7 {
     public void main(String[] args) {
 
+//        If　a = 1, b = 2, c = 3 ... z = 26
+//        Then l + o + v + e = 54
+//        and f + r + i + e + n + d + s + h + i + p = 108
+//        So friendship is twice as strong as love :-)
+//
+//        Your task is to write a function which calculates the value of a word based off the sum of the alphabet positions of its characters.
+
         Scanner scanner = new Scanner(System.in);
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
-
-
 
         System.out.print("Print your word and I'll calculate the value of a word: ");
         String input = scanner.nextLine().toLowerCase();

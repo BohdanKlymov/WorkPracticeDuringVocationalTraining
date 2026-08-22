@@ -15,4 +15,24 @@ public class PascalCaseMethod_6Test {
         Result current = outputOfResult(input);
         assertEquals(expected, current);
     }
+
+    @Test
+    void FindingTheBiggestSum2() {
+        int[] input = {6};
+        int outputInt = 6;
+        int[] output = {6};
+        Result expected = new Result(outputInt, output);;
+        Result current = outputOfResult(input);
+        assertEquals(expected, current);
+    }
+
+    @Test
+    void FindingTheBiggestSum3() {
+        int[] input = {1, 2, 3};
+        int outputInt = 6;
+        int[] output = {1, 2, 3};
+        Result expected = new Result(outputInt, output);;
+        Result current = outputOfResult(input);
+        assertEquals(expected, current);
+    }
 }

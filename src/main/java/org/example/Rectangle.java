@@ -2,6 +2,11 @@ package org.example;
 
 public class Rectangle {
     public static void main(String[] args) {
+
+//        Schreiben Sie ein Java-Programm Rechteck.java,
+//        das die Länge der Diagonalen sowie Umfang und Flächeninhalt eines Rechtecks berechnet und in geeigneter Form ausgibt.
+//        Die zwei Seitenlängen des Rechtecks sollen vom Terminal eingelesen werden.
+
         if (args.length == 0) {
             return;
         }

@@ -2,6 +2,9 @@ package org.example;
 
 public class ReversedStrings_8 {
     static void main() {
+
+//        Complete the solution so that it reverses the string passed into it.
+
         System.out.print(solution("World Cup"));
     }
 

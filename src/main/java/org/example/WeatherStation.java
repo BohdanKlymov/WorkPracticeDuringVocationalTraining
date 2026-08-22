@@ -5,6 +5,13 @@ import java.util.Arrays;
 public class WeatherStation {
     public static void main(String[] args) {
 
+//        Eine Wetterstation auf der Nordseeinsel Juist übermittelt die Werte für die Regendauer des
+//        Tages in Sekunden an das Wetteramt. Schreiben Sie ein Programm, das eine Umrechnung von
+//        Sekunden in Tage, Stunden, Minuten und Sekunden vornimmt. Zum Beispiel sind 3820 sec =
+//        0 Tage, 1 Stunde (= 3600 sec), 3 Minuten (= 180 sec) und 40 Sekunden. Der Sekundenbetrag
+//        soll als Kommandozeilenargument übergeben werden. Das Ergebnis der Umrechnung soll
+//        ausgegeben werden
+
         if (args.length == 0) {
             return;
         }
