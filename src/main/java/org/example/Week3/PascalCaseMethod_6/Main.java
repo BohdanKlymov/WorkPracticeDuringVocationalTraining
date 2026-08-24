@@ -1,4 +1,4 @@
-package org.example.PascalCaseMethod_6;
+package org.example.Week3.PascalCaseMethod_6;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Week3;
 
 public class Rectangle {
     public static void main(String[] args) {

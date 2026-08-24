@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.Arrays;
+package org.example.Week3;
 
 public class WeatherStation {
     public static void main(String[] args) {

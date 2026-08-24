@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Week2;
 
 public class ShortEvaluation {
     public static void main(String[] args) {

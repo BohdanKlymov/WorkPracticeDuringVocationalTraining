@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Week2;
 
 public class Operators {
     public static void main (String[] args) {

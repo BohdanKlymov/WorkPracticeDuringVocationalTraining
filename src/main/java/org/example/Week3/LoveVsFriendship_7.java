@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Week3;
 import java.util.HashMap;
 import java.util.Scanner;
 

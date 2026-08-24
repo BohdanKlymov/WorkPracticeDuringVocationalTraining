@@ -1,5 +1,4 @@
-package org.example;
-import java.util.Random;
+package org.example.Week3;
 
 public class TripleR {
     public static void main(String[] args) {

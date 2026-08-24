@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Week1;
 
 public class ReversedStrings_8 {
     static void main() {

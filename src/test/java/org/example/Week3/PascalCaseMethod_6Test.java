@@ -1,8 +1,8 @@
-package org.example;
-import org.example.PascalCaseMethod_6.Result;
+package org.example.Week3;
+import org.example.Week3.PascalCaseMethod_6.Result;
 import org.junit.jupiter.api.Test;
 
-import static org.example.PascalCaseMethod_6.Main.outputOfResult;
+import static org.example.Week3.PascalCaseMethod_6.Main.outputOfResult;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PascalCaseMethod_6Test {
