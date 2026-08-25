@@ -11,9 +11,21 @@ public class PrimeNumber {
         int p = 7;
     }
 
-//    public static boolean checkIfIsPrimeNumber(int p) {
-//
-//        int countForPrimeNumber =
-//        while...
-//    }
+    public static boolean checkIfIsPrimeNumber(int p) {
+
+        if (p <= 1) {
+            return false;
+        }
+
+        double divisor = p - 1;
+        while (divisor > 1) {
+
+            if (p / divisor % 1 == 0) {
+                return false;
+            }
+            divisor--;
+        }
+        return true;
+
+    }
 }
