@@ -26,17 +26,57 @@ public class Chessboard {
         */
 
     public static void main( String[] args ) {
-        char linie = 'A';                             // Definition der Linie, z.B. A-Linie
-        int reihe = 1;                              // Definition der Reihe, z.B. 3.Reihe
+        char line;
+        int row;
 
-        for ( reihe = 8; reihe >= 1; reihe--)
-            // Schreibe alle Schachbrettfelder
-        {
-            for ( linie = 'A'; linie <= 'H'; linie++)     // alle Felder einer Reihe
-            System.out.print(" " + linie + reihe) ;            // Schreibe ein Feld
-            System.out.println() ;                        // Felder der nächsten Reihe
-            // müssen in die nächste Zeile
+        System.out.println("for loop variant: \n");
+
+        for (row = 4; row >= 1; row--) {
+
+            for (line = 'A'; line <= 'D'; line++)
+            System.out.print("    " + line + row);
+            System.out.println();
+            System.out.println();
+
         }
+
+        System.out.println("while loop variant: \n");
+
+        row = 4;
+
+        while (row >= 1) {
+
+            line = 'A';
+
+            while (line <= 'D') {
+                System.out.print("    " + line + row);
+                line++;
+            }
+
+            System.out.println();
+            System.out.println();
+
+            row--;
+        }
+
+        System.out.println("do-while loop variant: \n");
+
+        row = 4;
+
+        do {
+            line = 'A';
+
+            while (line <= 'D') {
+                System.out.print("    " + line + row);
+                line++;
+            }
+
+            System.out.println();
+            System.out.println();
+
+            row--;
+        }
+        while (row >= 1);
     }
 
 }
