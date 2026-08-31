@@ -2,23 +2,15 @@ package org.example.Week5;
 
 public class GameOfLife {
     public static void main(String[] args) {
-
+        boolean[][] blinker = new boolean[][] {
+                {false, true, false},
+                {false, true, false},
+                {false, true, false}
+        };
     }
 
-    public static boolean checkingCorners() {
-        return false;
-    }
-
-    public static boolean checkingSides() {
-        return false;
-    }
-
-    public static boolean checkingCentralArea() {
-        return true;
-    }
-
-    public static boolean[][] changingField() {
-
+    public static boolean[][] changingField(boolean[][] twoDimensionalSquare) {
+        return twoDimensionalSquare;
     }
 
     
