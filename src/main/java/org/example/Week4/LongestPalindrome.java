@@ -3,13 +3,6 @@ package org.example.Week4;
 import java.util.*;
 
 public class LongestPalindrome {
-    public static void main(String[] args) {
-
-        String s = "The lil Ganster";
-
-        System.out.println(findLongestPalindrome(s));
-    }
-
 //    Write a Java program that takes a string and finds the longest contiguous substring that reads the same forwards and backwards.
 //      Beispiel:
 //          input = racecarcrash
@@ -29,19 +22,22 @@ public class LongestPalindrome {
 
                 String textToProofPalindrome = input.substring(startIndex, lastIndexToAdd + 1);
 
-                int amountOfNumbersForPalindromeCheck = textToProofPalindrome.length() / 2;
+                String backwardWord = "";
+                for (int index = textToProofPalindrome.length() - 1; index >= 0; index--) {
+                    backwardWord += textToProofPalindrome.charAt(index);
+                }
 
-//                The problem is at the line 35. It doesn't check right if it equals
-                if (textToProofPalindrome.substring(startIndex, amountOfNumbersForPalindromeCheck).equals(textToProofPalindrome.substring(amountOfNumbersForPalindromeCheck + 1))) {
+                if (textToProofPalindrome.equals(backwardWord)) {
                     palindromesInWord.add(textToProofPalindrome);
                 }
             }
         }
 
-        String result = Collections.max(palindromesInWord, Comparator.comparingInt(String::length));
+        if (palindromesInWord.isEmpty()) {
+            return "";
+        }
 
-
-        return  result;
+        return Collections.max(palindromesInWord, Comparator.comparingInt(String::length));
     }
 
 }
