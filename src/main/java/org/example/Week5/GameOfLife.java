@@ -45,25 +45,69 @@ public class GameOfLife {
 
     public static boolean trueOrFalse(int index, int rowIndex, boolean[] row, boolean[][] twoDimensionalSquare) {
 
-//                here corners will be checked
-        if (rowIndex == 0 && index == 0 || rowIndex == 0 && index == row.length - 1 ||
-                rowIndex == twoDimensionalSquare.length - 1 && index == row.length - 1) {
+        int amountOfTrueNeighbors = 0;
 
-                return false;
-        }
-        else {
-//                         here borders will be checked
-            if (rowIndex == 0 && index != 0 && index != row.length - 1 ||
-                    rowIndex == twoDimensionalSquare.length - 1 && index != 0 && index != row.length - 1 ||
-                    index == 0 && rowIndex != 0 && rowIndex != twoDimensionalSquare.length ||
-                    index == row.length - 1 && rowIndex != 0 && rowIndex != twoDimensionalSquare.length - 1) {
+        boolean isTopRow = rowIndex == 0;
+        boolean isBottomRow = rowIndex == twoDimensionalSquare.length - 1;
 
-                    return false;
+        boolean isLeftColumn = index == 0;
+        boolean isRightColumn = index == row.length - 1;
+
+        boolean isCorner = (isTopRow || isBottomRow) && (isLeftColumn || isRightColumn);
+
+        if (isCorner) {
+
+            if (isLeftColumn && isTopRow) {
+                if (twoDimensionalSquare[rowIndex][index + 1]) {
+                    amountOfTrueNeighbors++;
+                }
+                if (twoDimensionalSquare[rowIndex + 1][index]) {
+                    amountOfTrueNeighbors++;
+                }
+                if (twoDimensionalSquare[rowIndex + 1][index + 1]) {
+                    amountOfTrueNeighbors++;
+                }
+            } if (isRightColumn && isTopRow) {
+                if (twoDimensionalSquare[rowIndex][index - 1]) {
+                    amountOfTrueNeighbors++;
+                }
+                if (twoDimensionalSquare[rowIndex + 1][index]) {
+                    amountOfTrueNeighbors++;
+                }
+                if (twoDimensionalSquare[rowIndex + 1][index - 1]) {
+                    amountOfTrueNeighbors++;
+                }
             }
-//                        here midfield will be checked
-            else {
-                return false;
+//            if (isTopRow) {
+//                if (twoDimensionalSquare[rowIndex + 1][index] || ) {
+//                    amountOfTrueNeighbors++;
+//                }
+//            } else {
+//                if (twoDimensionalSquare[rowIndex][index  - 1]) {
+//                    amountOfTrueNeighbors++;
+//                }
+//            }
+
+            return false;
+        }
+
+        boolean isBorder = isTopRow || isBottomRow || isLeftColumn || isRightColumn;
+
+        if (isBorder) {
+            return false;
+        }
+
+        // midfield
+
+        for (int amountOfRowChecks = rowIndex - 1; amountOfRowChecks < amountOfRowChecks + 4; amountOfRowChecks++) {
+            for (int countFor8Neighbors = index - 1; countFor8Neighbors < countFor8Neighbors + 4; countFor8Neighbors++) {
+
             }
         }
+
+        return false;
+
+
+//        boolean rulesForCellLife = amountOfTrueNeighbors > 2 && amountOfTrueNeighbors < 3;
     }
 }
