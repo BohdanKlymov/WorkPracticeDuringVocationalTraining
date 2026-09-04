@@ -28,11 +28,11 @@ public class GameOfLife {
         }
 //
 
-        for (int rowIndex = 0; rowIndex < twoDimensionalSquare.length - 1; rowIndex++) {
+        for (int rowIndex = 0; rowIndex < twoDimensionalSquare.length; rowIndex++) {
 
             boolean[] row = twoDimensionalSquare[rowIndex];
 
-            for (int index = 0; index < row.length - 1; index++) {
+            for (int index = 0; index < row.length; index++) {
 
                 nextGeneration[rowIndex][index] = trueOrFalse(index, rowIndex, row, twoDimensionalSquare);
             }
@@ -113,6 +113,15 @@ public class GameOfLife {
                         if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
                             continue;
                         }
+
+                        if (countOfRowChecks < 0 ||
+                                countOfRowChecks >= twoDimensionalSquare.length ||
+                                countOfColumnChecks < 0 ||
+                                countOfColumnChecks >= twoDimensionalSquare[countOfRowChecks].length) {
+                            continue;
+                        }
+
+
                         if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
                             amountOfTrueNeighbors++;
                         }
@@ -125,6 +134,14 @@ public class GameOfLife {
                         if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
                             continue;
                         }
+
+                        if (countOfRowChecks < 0 ||
+                                countOfRowChecks >= twoDimensionalSquare.length ||
+                                countOfColumnChecks < 0 ||
+                                countOfColumnChecks >= twoDimensionalSquare[countOfRowChecks].length) {
+                            continue;
+                        }
+
                         if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
                             amountOfTrueNeighbors++;
                         }
@@ -137,6 +154,14 @@ public class GameOfLife {
                         if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
                             continue;
                         }
+
+                        if (countOfRowChecks < 0 ||
+                                countOfRowChecks >= twoDimensionalSquare.length ||
+                                countOfColumnChecks < 0 ||
+                                countOfColumnChecks >= twoDimensionalSquare[countOfRowChecks].length) {
+                            continue;
+                        }
+
                         if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
                             amountOfTrueNeighbors++;
                         }
@@ -149,6 +174,14 @@ public class GameOfLife {
                         if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
                             continue;
                         }
+
+                        if (countOfRowChecks < 0 ||
+                                countOfRowChecks >= twoDimensionalSquare.length ||
+                                countOfColumnChecks < 0 ||
+                                countOfColumnChecks >= twoDimensionalSquare[countOfRowChecks].length) {
+                            continue;
+                        }
+
                         if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
                             amountOfTrueNeighbors++;
                         }
@@ -160,11 +193,21 @@ public class GameOfLife {
 
         // midfield
 
-        for (int countOfRowChecks = rowIndex - 1; countOfRowChecks <= countOfRowChecks + 3; countOfRowChecks++) {
-            for (int countOfColumnChecks = index - 1; countOfColumnChecks <= countOfColumnChecks + 2; countOfColumnChecks++) {
+        for (int countOfRowChecks = rowIndex - 1; countOfRowChecks <= rowIndex + 1; countOfRowChecks++) {
+
+            for (int countOfColumnChecks = index - 1; countOfColumnChecks <= index + 1; countOfColumnChecks++) {
+
                 if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
                     continue;
                 }
+
+                if (countOfRowChecks < 0 ||
+                        countOfRowChecks >= twoDimensionalSquare.length ||
+                        countOfColumnChecks < 0 ||
+                        countOfColumnChecks >= twoDimensionalSquare[countOfRowChecks].length) {
+                    continue;
+                }
+
                 if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
                     amountOfTrueNeighbors++;
                 }
