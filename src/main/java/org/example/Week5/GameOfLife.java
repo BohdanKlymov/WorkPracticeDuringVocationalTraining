@@ -15,9 +15,7 @@ public class GameOfLife {
         }
 
 
-
         System.out.println(Arrays.toString(changingField(blinker)));
-
     }
 
     public static boolean[][] changingField(boolean[][] twoDimensionalSquare) {
@@ -30,11 +28,11 @@ public class GameOfLife {
         }
 //
 
-        for (int rowIndex = 0; rowIndex < twoDimensionalSquare.length; rowIndex++) {
+        for (int rowIndex = 0; rowIndex < twoDimensionalSquare.length - 1; rowIndex++) {
 
             boolean[] row = twoDimensionalSquare[rowIndex];
 
-            for (int index = 0; index < row.length; index++) {
+            for (int index = 0; index < row.length - 1; index++) {
 
                 nextGeneration[rowIndex][index] = trueOrFalse(index, rowIndex, row, twoDimensionalSquare);
             }
@@ -45,7 +43,10 @@ public class GameOfLife {
 
     public static boolean trueOrFalse(int index, int rowIndex, boolean[] row, boolean[][] twoDimensionalSquare) {
 
+//        are needed for function 'rulesForLifeOrDeath'
         int amountOfTrueNeighbors = 0;
+        boolean isCellTrue = twoDimensionalSquare[rowIndex][index];
+
 
         boolean isTopRow = rowIndex == 0;
         boolean isBottomRow = rowIndex == twoDimensionalSquare.length - 1;
@@ -77,37 +78,107 @@ public class GameOfLife {
                 if (twoDimensionalSquare[rowIndex + 1][index - 1]) {
                     amountOfTrueNeighbors++;
                 }
+            } if (isLeftColumn && isBottomRow) {
+                if (twoDimensionalSquare[rowIndex][index + 1]) {
+                    amountOfTrueNeighbors++;
+                }
+                if (twoDimensionalSquare[rowIndex - 1][index]) {
+                    amountOfTrueNeighbors++;
+                }
+                if (twoDimensionalSquare[rowIndex - 1][index + 1]) {
+                    amountOfTrueNeighbors++;
+                }
+            } if (isRightColumn && isBottomRow) {
+                if (twoDimensionalSquare[rowIndex][index - 1]) {
+                    amountOfTrueNeighbors++;
+                }
+                if (twoDimensionalSquare[rowIndex - 1][index]) {
+                    amountOfTrueNeighbors++;
+                }
+                if (twoDimensionalSquare[rowIndex - 1][index - 1]) {
+                    amountOfTrueNeighbors++;
+                }
             }
-//            if (isTopRow) {
-//                if (twoDimensionalSquare[rowIndex + 1][index] || ) {
-//                    amountOfTrueNeighbors++;
-//                }
-//            } else {
-//                if (twoDimensionalSquare[rowIndex][index  - 1]) {
-//                    amountOfTrueNeighbors++;
-//                }
-//            }
 
-            return false;
+            return rulesForLifeOrDeath(amountOfTrueNeighbors, isCellTrue);
         }
+
 
         boolean isBorder = isTopRow || isBottomRow || isLeftColumn || isRightColumn;
 
         if (isBorder) {
-            return false;
-        }
-
-        // midfield
-
-        for (int amountOfRowChecks = rowIndex - 1; amountOfRowChecks < amountOfRowChecks + 4; amountOfRowChecks++) {
-            for (int countFor8Neighbors = index - 1; countFor8Neighbors < countFor8Neighbors + 4; countFor8Neighbors++) {
-
+            if (isTopRow) {
+                for (int countOfRowChecks = rowIndex; countOfRowChecks <= countOfRowChecks + 1; countOfRowChecks++) {
+                    for (int countOfColumnChecks = index - 1; countOfColumnChecks <= countOfColumnChecks + 2; countOfColumnChecks++) {
+                        if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
+                            continue;
+                        }
+                        if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
+                            amountOfTrueNeighbors++;
+                        }
+                    }
+                }
+            }
+            if (isBottomRow) {
+                for (int countOfRowChecks = rowIndex - 1; countOfRowChecks <= countOfRowChecks + 1; countOfRowChecks++) {
+                    for (int countOfColumnChecks = index - 1; countOfColumnChecks <= countOfColumnChecks + 2; countOfColumnChecks++) {
+                        if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
+                            continue;
+                        }
+                        if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
+                            amountOfTrueNeighbors++;
+                        }
+                    }
+                }
+            }
+            if (isLeftColumn) {
+                for (int countOfRowChecks = rowIndex - 1; countOfRowChecks <= countOfRowChecks + 2; countOfRowChecks++) {
+                    for (int countOfColumnChecks = index; countOfColumnChecks <= countOfColumnChecks + 1; countOfColumnChecks++) {
+                        if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
+                            continue;
+                        }
+                        if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
+                            amountOfTrueNeighbors++;
+                        }
+                    }
+                }
+            }
+            if (isRightColumn) {
+                for (int countOfRowChecks = rowIndex - 1; countOfRowChecks <= countOfRowChecks + 2; countOfRowChecks++) {
+                    for (int countOfColumnChecks = index - 1; countOfColumnChecks <= countOfColumnChecks + 1; countOfColumnChecks++) {
+                        if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
+                            continue;
+                        }
+                        if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
+                            amountOfTrueNeighbors++;
+                        }
+                    }
+                }
             }
         }
 
-        return false;
 
+        // midfield
 
-//        boolean rulesForCellLife = amountOfTrueNeighbors > 2 && amountOfTrueNeighbors < 3;
+        for (int countOfRowChecks = rowIndex - 1; countOfRowChecks <= countOfRowChecks + 3; countOfRowChecks++) {
+            for (int countOfColumnChecks = index - 1; countOfColumnChecks <= countOfColumnChecks + 2; countOfColumnChecks++) {
+                if (countOfRowChecks == rowIndex && countOfColumnChecks == index) {
+                    continue;
+                }
+                if (twoDimensionalSquare[countOfRowChecks][countOfColumnChecks]) {
+                    amountOfTrueNeighbors++;
+                }
+            }
+        }
+        return rulesForLifeOrDeath(amountOfTrueNeighbors, isCellTrue);
+    }
+
+    public static boolean rulesForLifeOrDeath (int amountOfTrueNeighbors, boolean isCellTrue) {
+        if (!isCellTrue) {
+            if (amountOfTrueNeighbors == 3) {
+                return true;
+            }
+        }
+        return 2 <= amountOfTrueNeighbors && amountOfTrueNeighbors <= 3;
     }
 }
